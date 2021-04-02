@@ -1214,7 +1214,7 @@
   dependencies:
     "cross-spawn" "^6.0.5"
 
-"@expo/vector-icons@^12.0.0":
+"@expo/vector-icons@^12.0.0", "@expo/vector-icons@^12.0.4":
   "integrity" "sha512-/EFbXri7jZmqj1jTY6wpauvMN0DY0Epic003d43yWqrScLlVERaxXrOR07BNuCZvVMHBAzXN4VbOzUUUTq6j8g=="
   "resolved" "https://registry.npmjs.org/@expo/vector-icons/-/vector-icons-12.0.4.tgz"
   "version" "12.0.4"
@@ -3740,7 +3740,7 @@
     "strip-ansi" "^4.0.0"
     "through" "^2.3.6"
 
-"invariant@^2.2.2", "invariant@^2.2.4":
+"invariant@^2.2.2", "invariant@^2.2.4", "invariant@>=2":
   "integrity" "sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA=="
   "resolved" "https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz"
   "version" "2.2.4"
@@ -5447,7 +5447,7 @@
     "prop-types" "^15.6.0"
     "react-timer-mixin" "^0.13.4"
 
-"react-native@*", "react-native@>=0.42.0", "react-native@>=0.57", "react-native@>=0.62.0-rc.0 <0.64.0", "react-native@https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz":
+"react-native@*", "react-native@>=0.42.0", "react-native@>=0.57", "react-native@>=0.62.0", "react-native@>=0.62.0-rc.0 <0.64.0", "react-native@https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz":
   "version" "0.63.2"
   dependencies:
     "@babel/runtime" "^7.0.0"
@@ -5478,6 +5478,13 @@
     "use-subscription" "^1.0.0"
     "whatwg-fetch" "^3.0.0"
 
+"react-navigation-header-buttons@^6.3.1":
+  "integrity" "sha512-D3qVcCm+WOjHWijPWn859LDCZ/TcM0t1ptVm+QDMET2Rvjfgtlq9BRuS/dfJ1D8axWX88qPUTVklqNAPfu4f0g=="
+  "resolved" "https://registry.npmjs.org/react-navigation-header-buttons/-/react-navigation-header-buttons-6.3.1.tgz"
+  "version" "6.3.1"
+  dependencies:
+    "invariant" ">=2"
+
 "react-navigation-stack@^2.10.4":
   "integrity" "sha512-3LE1PFsFV9v4PUlZRATMotqs6H7MOOpIKtjyP+l8D1cyzYmsMQh3EFikeDfzGQUXIvy8VyLAMtcEssicQPYvFA=="
   "resolved" "https://registry.npmjs.org/react-navigation-stack/-/react-navigation-stack-2.10.4.tgz"
@@ -5504,7 +5511,7 @@
   "resolved" "https://registry.npmjs.org/react-timer-mixin/-/react-timer-mixin-0.13.4.tgz"
   "version" "0.13.4"
 
-"react@*", "react@^16.0", "react@^16.13.1", "react@^16.8.0 || ^17.0.0", "react@>=16.5.1", "react@16.13.1":
+"react@*", "react@^16.0", "react@^16.13.1", "react@^16.8.0 || ^17.0.0", "react@>=16.11.0", "react@>=16.5.1", "react@16.13.1":
   "integrity" "sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.13.1.tgz"
   "version" "16.13.1"
