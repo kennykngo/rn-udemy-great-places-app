@@ -24,6 +24,7 @@ const NewPlaceScreen = (props) => {
 
   const savePlaceHandler = () => {
     dispatch(placesActions.addPlace(titleValue));
+    props.navigation.goBack();
   };
 
   return (
@@ -35,7 +36,11 @@ const NewPlaceScreen = (props) => {
           onChangeText={titleChangeHandler}
           value={titleValue}
         />
-        <Button title='Save Place' color={Colors.primary} onPress={() => {}} />
+        <Button
+          title='Save Place'
+          color={Colors.primary}
+          onPress={savePlaceHandler}
+        />
       </View>
     </ScrollView>
   );
