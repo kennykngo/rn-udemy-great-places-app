@@ -1,21 +1,33 @@
-import React, { useState } from 'react';
+import * as Location from 'expo-location';
+import * as Permissions from 'expo-permissions';
+import React, { useEffect, useState } from 'react';
 import {
-  View,
-  Button,
-  Text,
   ActivityIndicator,
   Alert,
+  Button,
   StyleSheet,
+  Text,
+  View,
 } from 'react-native';
 
 import Colors from '../constants/Colors';
-import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions';
 import MapPreview from './MapPreview';
 
 const LocationPicker = (props) => {
   const [isFetching, setIsFetching] = useState(false);
   const [pickedLocation, setPickedLocation] = useState();
+
+  // name is set on the MapScreen.js
+  const mapPickedLocation = props.navigation.getParam('pickedLocation');
+
+  const { onLocationPicked } = props;
+
+  useEffect(() => {
+    if (mapPickedLocation) {
+      setPickedLocation(mapPickedLocation);
+      onLocationPicked(mapPickedLocation);
+    }
+  }, [mapPickedLocation]);
 
   const verifyPermissions = async () => {
     const result = await Permissions.askAsync(Permissions.LOCATION);
@@ -46,6 +58,10 @@ const LocationPicker = (props) => {
       console.log(location);
 
       setPickedLocation({
+        lat: location.coords.latitude,
+        lng: location.coords.longitude,
+      });
+      props.onLocationPicked({
         lat: location.coords.latitude,
         lng: location.coords.longitude,
       });

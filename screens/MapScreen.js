@@ -7,7 +7,8 @@ import {
   View,
 } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+
+import Colors from '../constants/Colors';
 
 const MapScreen = (props) => {
   const [selectedLocation, setSelectedLocation] = useState();
@@ -26,10 +27,15 @@ const MapScreen = (props) => {
     });
   };
 
-  // adds an empty array to avoid an infinite loop
+  // adds a key-value pair and is forced to add selectedLocation as a dependency
   const savePickedLocationHandler = useCallback(() => {
-    props.navigation.goBack();
-  }, []);
+    if (!selectedLocation) {
+      // TODO: Alert.alert
+      return;
+    }
+
+    props.navigation.navigate('NewPlace', { pickedLocation: selectedLocation });
+  }, [selectedLocation]);
 
   useEffect(() => {
     props.navigation.setParams({ saveLocation: savePickedLocationHandler });
@@ -58,7 +64,7 @@ const MapScreen = (props) => {
 };
 
 MapScreen.navigationOptions = (navData) => {
-  const saveFn = navData.navigation.getParam('saveLocation s');
+  const saveFn = navData.navigation.getParam('saveLocation');
   return {
     headerRight: () => (
       <TouchableOpacity style={styles.headerButton} onPress={saveFn}>
